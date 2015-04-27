@@ -1,0 +1,162 @@
+#jspm-angular-seed
+
+Example app demonstrating use of jspm package manager, ES6 and Angular.
+
+##Getting Started
+
+This project requires node, npm, jspm, and gulp along with additional dependencies that will
+automatically be installed upon installing the application in the final step.
+
+###Install Node & Npm
+
+If you already have Node & Npm installed you can skip this step and go to "Install jspm".
+
+You can download Node which typically has npm bundled with it from <a href="https://nodejs.org/download/">
+NodeJS Downloads</a> page.
+
+Alternatively for Mac users you can install using Homebrew.
+
+```sh
+$ brew install node
+```
+
+For additional installation methods and examples see 
+[Installing and Building Node](https://github.com/joyent/node/wiki/Installation).
+
+###Install jspm
+
+In order to use jspm from our command line terminal/console we need to first install it using the global flag (-g).
+
+```sh
+$ npm install jspm -g
+`
+
+###Install jspm-angular-seed
+
+If you have cloned the repository skip this step and and go to **Install the Project**
+
+```sh
+$ npm install jspm-angular-seed
+`
+
+###Install Project
+
+Now that you have your seed project installed or cloned change directories
+then run install to install the project's remaining dependencies.
+
+```sh
+$ cd jspm-angular-seed
+$ npm install
+```
+
+###Chrome Extension (optional)
+
+In order to see changes reflected in your browser you may wish to use [Google Chrome](http://www.google.com/chrome)
+and the livereload extension. You can install the extension from the Chrome Web Store.
+
+[Livereload Chrome Extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en-US)
+
+###Running the Server
+
+```sh
+$ gulp serve
+```
+
+###Package Management
+
+Please see the [jspm documentation](https://github.com/jspm/jspm-cli/wiki/Getting-Started) 
+for instruction, examples and command line flags.
+
+You may also wish to checkout this [video](https://youtu.be/iukBMY4apvI). It's only about 10 minutes
+but makes it clear what your work flow should be as to development and production respectively.
+
+That said the basic syntax is:
+
+```sh
+$ jspm install package
+```
+
+or (github)
+
+```sh
+$ jspm install github:username/repo
+```
+
+or (npm)
+
+```sh
+$ jspm install npm:package
+```
+
+###ES6 Modules
+
+Only going to go into the basics here however a quick search and I'm sure you'll find what you need when questions
+arise. So below is the basic structure you might have using jspm which incorporates systemjs-builder (what builds out
+your source compiling it into es5).
+
+####HTML Markup
+
+Your main layout.html (index.html or whatever you call it)
+
+```html
+<!-- 
+    This exposes the System object to 
+    your application 
+-->
+<script src="jspm_packages/system.js"></script>
+
+<!-- 
+    This reference tells systemjs how 
+    your application is configured. This 
+    will be important if you use alternate 
+    locations for jspm/config.js file 
+    etc. You will also use this file for 
+    custom maps/paths and so on.
+    see: https://github.com/systemjs/systemjs/wiki/Basic-Use
+-->
+<script src="config.js"></script>
+
+<!-- 
+    Now we're ready to import our app.
+-->
+<script>
+    System.import('js/app').then(function (m) {
+    
+        // application is loaded.
+        
+        // "m" param here is simply the module
+        // you are importing in some cases
+        // you may need to new up a module
+        // in that case it might look like
+        // var app = m.CLASS_NAME(); where
+        // CLASS_NAME is the name of your
+        // class CLASS_NAME { constructor() {}}
+        
+    });
+</script>
+```
+####Application
+
+This represents the your primary module.
+
+```js
+    // import angular and dependencies
+    import angular from 'angular';
+    
+    // import your custom defined modules
+    // if an angular module this merely
+    // notifies the module loader to load
+    // the file/module.
+    import userModule from './users';
+    
+    var app = angular.module('app', [ // dependencies ]);
+    
+    app.config(// config function);
+    app.run(// run function);
+    
+    app.controller('MyCtrl', function ($scope) {
+        // my scope methods etc.
+    });       
+```
+
+

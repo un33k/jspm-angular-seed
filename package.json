@@ -1,0 +1,56 @@
+{
+  "name": "jspm-angular-seed",
+  "version": "0.0.2",
+  "description": "Seed example using AngularJS 1.x with jspm and systemjs/es6-module-loader.",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/origin1tech/jspm-angular-seed"
+  },
+  "keywords": [
+    "Angular",
+    "AngularJS",
+    "jspm",
+    "ES6",
+    "Traceur",
+    "Babel",
+    "es6-module-loader",
+    "systemjs"
+  ],
+  "author": "Origin1 Technologies <origin1tech@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/origin1tech/jspm-angular-seed/issues"
+  },
+  "homepage": "https://github.com/origin1tech/jspm-angular-seed",
+  "jspm": {
+    "directories": {
+      "baseURL": "dist",
+      "bin": "./bin"
+    },
+    "configFile": "dist/config.js",
+    "dependencies": {
+      "angular": "github:angular/bower-angular@^1.3.15",
+      "angular-route": "github:angular/bower-angular-route@^1.3.15"
+    },
+    "devDependencies": {
+      "traceur": "github:jmcriffey/bower-traceur@0.0.87",
+      "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.87"
+    }
+  },
+  "dependencies": {
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-bump": "^0.3.0",
+    "gulp-live-server": "0.0.14",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-util": "^3.0.4"
+  },
+  "devDependencies": {
+    "gulp-jshint": "^1.10.0",
+    "jshint-stylish": "^1.0.1"
+  }
+}

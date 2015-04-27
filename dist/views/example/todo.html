@@ -1,0 +1,68 @@
+<div class="view">
+    <div class="pull-right">
+        <a class="btn btn-default btn-menu" href="/">Home</a>
+    </div>
+    <h2>Todo</h2>
+    <p class="alert alert-warning">
+        Now that you have your project running and you've gotten comfortable with jspm, modules and the
+        module loader, it's time to add some additional helper tasks making it easier to
+        output your application.
+    </p>
+    <h4>Production Server</h4>
+    <p>
+        The most common server is probably <a href="http://expressjs.com/">Express</a>. It has excellent support
+        and examples can be found rather easily. You may also want to take a look at <a href="">KOA</a> it was
+        written by the same developer that contributed to Express mentioned above. It has gained ground of
+        late and makes great use of generators.
+    </p>
+    <ul>
+        <li><a href="http://expressjs.com/starter/hello-world.html">Express</a> - hello world example.</li>
+        <li><a href="http://koajs.com/#application">KOA</a> - hello world example.</li>
+    </ul>
+    <h4>Production Bundling</h4>
+    <p>
+        Bundling your project for production and deployment is made easy with jspm. Running the follow from your
+        terminal or console will clean your dist directory and bundle the project which would be equivalent to
+        running <code>$ jspm bundle-sfx app/app app.js</code> directly using the <strong>jspm cli</strong>.
+    </p>
+    <p>
+        Once the below is completed you're ready to deploy your <strong>/dist</strong> directory to your
+        procuction environment.
+    </p>
+    <pre>
+        $ gulp prod
+    </pre>
+    <h4>Sass & Styling</h4>
+    <p>
+        One of the best things to add to your workflow is to add Sass for your styling.
+        Sass works particularly well for complex layouts. It makes your source more readable
+        not to mention powerful.
+    </p>
+    <p>
+        Below is an example of what a gulp.task may look like for your styles. NOTE: this assumes you are using the
+        <strong>gulp-load-plugins</strong> module. What this module does is look in your package.json and any module
+        prefixed with <strong>gulp-</strong> it exposes to your gulpfile.js. If you do not wish to use this module
+        simply require the Sass module which would be <code>var sass = require ('gulp-sass')</code>
+    </p>
+    <pre>
+        gulp.task('styles', function () {<br/>
+        &nbsp;gulp.src(['./path/to/src/*.sass])<br/>
+        &nbsp;&nbsp;.pipe(plugins.sass())<br/>
+        &nbsp;&nbsp;.pipe(gulp.dest('./path/to/dist');<br/>
+        });
+    </pre>
+    <h4>Resources</h4>
+    <p>
+        All the reource links for this project.
+    </p>
+    <ul>
+        <li><a href="https://nodejs.org/">NodeJS</a> - core framework that makes it all work.</li>
+        <li><a href="http://jspm.io/">jspm</a> - jspm package manager.</li>
+        <li><a href="http://gulpjs.com">Gulp</a> - workflow enhancement tool.</li>
+        <li><a href="https://angularjs.org/">AngularJS</a> - most popular client side JavaScript framework.</li>
+        <li><a href="https://github.com/origin1tech/jspm-angular-seed">jspm-angular-seed</a> -
+            github repository for this project.</li>
+        <li><a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en-US">Chrome Extenstion</a> -
+            - link to extension store for livereload.</li>
+    </ul>
+</div>
