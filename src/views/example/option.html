@@ -1,0 +1,140 @@
+<div class="view">
+    <div class="pull-right">
+        <a class="btn btn-default btn-menu" href="/">Home</a>
+    </div>
+    <h2>Options</h2>
+    <p class="alert alert-warning">
+        There are several option flags that you can use along with additional commands when running the project.
+        This section will discusss those as well as production and deployment workflows.
+    </p>
+    <h4>Changing Examples & Boilerplate</h4>
+    <p>
+        In the <strong>index.html</strong> file you'll notice several <strong>System.import</strong> declarations.
+        These declarations can be commented or uncommented to expose different modules or apps. By default the base
+        example which includes the documentation is the <strong>/js/example/app.ng.js</strong> file. This file
+        uses standard router (ngRoute) from Angular. You can also run the example using
+        <a href="https://github.com/angular-ui/ui-router">ui-router</a> from the <strong>angular-ui</strong>
+        project. Finally you can use a boilerplate module to help you get a real project going. Simply uncomment
+        <code>System.import('js/app');</code>
+    </p>
+    <p>
+        The markup below is what you'll see in <strong>index.html</strong> it's here for convenience along with some
+        additional commenting.
+    </p>
+    <pre>
+        &lt;!-- START SCRIPTS --&gt;<br/><br/>
+        &lt;!-- Required to expose System module loading. --&gt;<br/>
+        &lt;script src=&quot;jspm_packages/system.js&quot;&gt;&lt;/script&gt;<br/><br/>
+        &lt;!-- Required when dev or not runing sfx bundle. --&gt;<br/>
+        &lt;script src=&quot;config.js&quot;&gt;&lt;/script&gt;<br/><br/>
+
+        &lt;!--<br/>
+        Uncomment to use boilerplate sfx bundled app<br/>
+        &lt;script src=&quot;js/app.js&quot;&gt;&lt;/script&gt;<br/>
+        --&gt;<br/><br/>
+
+        &lt;script&gt;<br/><br/>
+
+        &nbsp;&nbsp;// NG ROUTE EXAMPLE (Default)<br/>
+        &nbsp;&nbsp;// displays docs/example using ngRoute.<br/>
+        &nbsp;&nbsp;System.import('js/example/app.ng');<br/><br/>
+
+        &nbsp;&nbsp;// UI ROUTER EXAMPLE<br/>
+        &nbsp;&nbsp;// uncomment to display docs/example using &amp; ui.router.<br/>
+        &nbsp;&nbsp;// System.import('js/example/app.ui');<br/><br/>
+
+        &nbsp;&nbsp;// PLACEHOLDER EXAMPLE (uses ngRoute)<br/>
+        &nbsp;&nbsp;// uncomment to display app boilerplate.<br/>
+        &nbsp;&nbsp;// System.import('js/app');<br/><br/>
+
+        &lt;/script&gt;<br/>
+        &lt;!-- END SCRIPTS --&gt;<br/>
+    </pre>
+    <h4>Linting Your Project</h4>
+    <p>
+        The project uses <a href="https://www.npmjs.com/package/gulp-jshint">gulp-jshint</a> as its code quality tool.
+        You can run the linting tool directly or add it as a flag to another task.
+    </p>
+    <p>
+        Running linting directly.
+    </p>
+    <pre>
+        $ gulp lint
+    </pre>
+    <h4>Production Server</h4>
+    <p>
+        The most common server is probably <a href="http://expressjs.com/">Express</a>. It has excellent support
+        and examples can be found rather easily. You may also want to take a look at
+        <a href="http://koajs.com/#introduction">KOA</a> it was written by the same developer that contributed
+        to Express mentioned above. It has gained ground of late and makes great use of generators.
+    </p>
+    <ul>
+        <li><a href="http://expressjs.com/starter/hello-world.html">Express</a> - hello world example.</li>
+        <li><a href="http://koajs.com/#application">KOA</a> - hello world example.</li>
+    </ul>
+    <h4>Production Bundling</h4>
+    <p>
+        Bundling your project for production and deployment is made easy with systemjs-builder which is
+        packaged within jspm. The output will EXCLUDE any <strong>example</strong> directories as it assumes
+        you are preparring to deploy in a production environment.Running the follow from your terminal
+        or console will clean your dist directory and bundle the project which would be equivalent
+        to commands you might use directly with the <strong>jspm cli</strong>.
+    </p>
+    <p>
+        Standard non self executing bundle.
+    </p>
+    <pre>
+        $ gulp bundle
+    </pre>
+    <p>
+        Bundling with lint.
+    </p>
+    <pre>
+        $ gulp bundle -l
+    </pre>
+    <p>
+        Bundling then serving to test bundle.
+    </p>
+    <pre>
+        $ gulp serve -b
+    </pre>
+    <p>
+        Bundling self executing module equivalent to <code>jspm bundle-sfx js/app bundle.js</code>. Building in
+        this manner can produce a bundle which can run independently of your <strong>config.js</strong>and
+        <strong>system.js</strong> if the <code>runtime:true</code> option is set in package.json
+        <strong>builder.options</strong> object.
+    </p>
+    <pre>
+        $ gulp bundle -s (or --sfx)
+    </pre>
+    <h4>Advanced Bundling Options</h4>
+    <p>
+        The gulp task that bundles your project can be further configured via the <strong>package.json</strong>
+        file. The project resolve the base url from the package.json jspm.directories.baseURL configuration
+        property of jspm itself. Likewise the builder loads its config file from the jspm.configFile if exists
+        or assumes it is named <strong>config.js</strong> and is located in the baseURL directory.
+        This ensures less configuration on your part as its using jspm's package.json configuration object itself.
+        There is also a custom key called <strong>builder</strong> which is used by the project to further configure
+        workflow tasks within gulp.
+    </p>
+    <pre>
+        "builder": {<br/>
+        "expression": "js/app",         // your main module entry point.<br/>
+        "outFile": "./dist/js/app.js",  // the directory to output your bundle.<br/>
+        "options": {<br/>
+        &nbsp;&nbsp;"runtime": false,   // whether to include runtime.<br/>
+        &nbsp;&nbsp;"minify": true,     // whether to minify the output.<br/>
+        &nbsp;&nbsp;"sourceMaps":true   // whether to include sourcemaps. <br/>
+        &nbsp;&nbsp;"config": {}        // options to pass to sourcemaps/minify config. <br/>
+        &nbsp;}<br/>
+        }
+    </pre>
+    <p>
+        You can view <a href="https://github.com/systemjs/builder">systemjs-builder</a> options at Github.
+        You can add whatever options you wish withing the <strong>builder.options</strong> property.
+    </p>
+    <p>
+        Take note also of the <strong>builder.options.config</strong> property. In this property you can pass along
+        source map options.
+    </p>
+</div>
