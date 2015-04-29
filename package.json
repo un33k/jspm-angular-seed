@@ -1,6 +1,6 @@
 {
   "name": "jspm-angular-seed",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Seed example using AngularJS 1.x with jspm and systemjs/es6-module-loader.",
   "main": "server.js",
   "scripts": {
@@ -47,7 +47,7 @@
     "options": {
       "runtime": false,
       "minify": true,
-      "sourceMaps":true,
+      "sourceMaps": true,
       "config": {}
     }
   },
