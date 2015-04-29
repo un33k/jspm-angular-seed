@@ -1,13 +1,13 @@
-#jspm-angular-seed
+# jspm-angular-seed
 
 Example app demonstrating use of jspm package manager, ES6 and Angular.
 
-##Getting Started
+## Getting Started
 
 This project requires node, npm, jspm, and gulp along with additional dependencies that will
 automatically be installed upon installing the application in the final step.
 
-###Install Node & Npm
+### Install Node & Npm
 
 If you already have Node & Npm installed you can skip this step and go to "Install jspm".
 
@@ -23,7 +23,7 @@ $ brew install node
 For additional installation methods and examples see 
 [Installing and Building Node](https://github.com/joyent/node/wiki/Installation).
 
-###Install jspm
+### Install jspm
 
 In order to use jspm from our command line terminal/console we need to first install it using the global flag (-g).
 
@@ -31,7 +31,7 @@ In order to use jspm from our command line terminal/console we need to first ins
 $ npm install jspm -g
 ```
 
-###Install jspm-angular-seed
+### Install jspm-angular-seed
 
 If you have cloned the repository skip this step and and go to **Install the Project**
 
@@ -39,7 +39,7 @@ If you have cloned the repository skip this step and and go to **Install the Pro
 $ npm install jspm-angular-seed
 ```
 
-###Install Project
+### Install Project
 
 Now that you have your seed project installed or cloned change directories
 then run install to install the project's remaining dependencies.
@@ -49,20 +49,20 @@ $ cd jspm-angular-seed
 $ npm install
 ```
 
-###Chrome Extension (optional)
+### Chrome Extension (optional)
 
 In order to see changes reflected in your browser you may wish to use [Google Chrome](http://www.google.com/chrome)
 and the livereload extension. You can install the extension from the Chrome Web Store.
 
 [Livereload Chrome Extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en-US)
 
-###Running the Server
+### Running the Server
 
 ```sh
 $ gulp serve
 ```
 
-###Package Management
+### Package Management
 
 Please see the [jspm documentation](https://github.com/jspm/jspm-cli/wiki/Getting-Started) 
 for instruction, examples and command line flags.
