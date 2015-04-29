@@ -29,7 +29,7 @@ In order to use jspm from our command line terminal/console we need to first ins
 
 ```sh
 $ npm install jspm -g
-`
+```
 
 ###Install jspm-angular-seed
 
@@ -37,7 +37,7 @@ If you have cloned the repository skip this step and and go to **Install the Pro
 
 ```sh
 $ npm install jspm-angular-seed
-`
+```
 
 ###Install Project
 
